@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --neon-cyan: #0ea5e9;
+  --neon-magenta: #e879f9;
+  --neon-glow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 dark:bg-slate-100 dark:text-slate-900 transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .neon-text {
+    @apply font-space-grotesk font-semibold text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-magenta;
+    text-shadow: var(--neon-glow);
+  }
+  
+  .neon-border {
+    @apply border-2 shadow-neon-md hover:shadow-neon-lg transition-all duration-300;
+    box-shadow: var(--neon-glow);
+  }
+  
+  .neon-button {
+    @apply px-6 py-2 rounded-lg border-2 shadow-neon-sm hover:shadow-neon-md
+    transition-all duration-300 hover:scale-105;
+  }
+  
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16;
+  }
+  
+  .skill-icon {
+    @apply text-4xl transition-all duration-300 hover:text-neon-cyan hover:animate-neon-pulse;
+  }
+  
+  .project-card {
+    @apply bg-slate-900/50 dark:bg-slate-200/50 backdrop-blur-sm rounded-xl p-6
+    border border-slate-700/50 dark:border-slate-300/50 hover:border-neon-cyan
+    dark:hover:border-neon-cyan transition-all duration-300 hover:shadow-neon-sm;
+  }
+}
+
+/* Custom cursor trail effect */
+.cursor-dot {
+  @apply fixed w-3 h-3 bg-neon-cyan rounded-full pointer-events-none
+  transition-all duration-150 ease-out z-50;
+  mix-blend-mode: screen;
+}
