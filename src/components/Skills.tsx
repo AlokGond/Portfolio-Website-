@@ -62,7 +62,7 @@ const Skills = () => {
             variants={containerVariants}
             className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8"
           >
-            {skills.map((skill, index) => (
+            {skills.map((skill) => (
               <motion.div
                 key={skill.name}
                 variants={itemVariants}

@@ -4,7 +4,8 @@ import { Link } from 'react-scroll';
 import { ThemeContext } from '../App';
 
 const Hero = () => {
-  const { isDarkMode } = useContext(ThemeContext);
+  // Remove unused isDarkMode variable
+  useContext(ThemeContext);
 
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
