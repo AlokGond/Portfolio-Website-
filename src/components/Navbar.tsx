@@ -4,6 +4,7 @@ import { Link } from 'react-scroll';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,9 +59,10 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center">
             <button
-              className="text-neon-cyan hover:text-neon-magenta transition-colors duration-300"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 rounded-lg bg-slate-800/50 text-neon-cyan hover:text-neon-magenta hover:bg-slate-700/50 transition-all duration-300"
               aria-label="Menu"
             >
               <svg
@@ -78,6 +80,31 @@ const Navbar = () => {
               </svg>
             </button>
           </div>
+
+          {/* Mobile Menu */}
+          <motion.div
+            initial={{ x: '100%' }}
+            animate={{ x: isMobileMenuOpen ? '0%' : '100%' }}
+            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+            className="fixed top-0 right-0 h-screen w-64 bg-slate-900/95 dark:bg-slate-100/95 backdrop-blur-lg md:hidden z-50 shadow-lg"
+          >
+            <div className="flex flex-col items-center pt-20 space-y-8">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.to}
+                  spy={true}
+                  smooth={true}
+                  offset={-64}
+                  duration={500}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="cursor-pointer text-lg hover:text-neon-cyan transition-colors duration-300"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </motion.nav>
