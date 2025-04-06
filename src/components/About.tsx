@@ -37,7 +37,7 @@ const About = () => {
           >
             <div className="aspect-square rounded-2xl overflow-hidden neon-border border-neon-cyan">
               <img
-                src="/your-image.jpg"
+                src="/assets/profile-photo.jpg"
                 alt="Profile"
                 className="w-full h-full object-cover"
               />

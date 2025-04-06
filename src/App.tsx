@@ -59,10 +59,10 @@ function App() {
           {/* Theme toggle button */}
           <button
             onClick={toggleTheme}
-            className="fixed top-4 right-4 z-50 neon-button text-neon-cyan"
+            className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full flex items-center justify-center bg-slate-900 dark:bg-slate-100 border-2 border-neon-cyan shadow-neon-sm hover:shadow-neon-md transition-all duration-300 hover:scale-105"
             aria-label="Toggle theme"
           >
-            {isDarkMode ? '🌞' : '🌙'}
+            <span className="text-xl">{isDarkMode ? '🌞' : '🌙'}</span>
           </button>
 
           <Navbar />

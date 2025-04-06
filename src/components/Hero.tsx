@@ -46,7 +46,7 @@ const Hero = () => {
           whileHover={{ scale: 1.05 }}
         >
           <img
-            src="/src/assets/profile-photo.svg"
+            src="/assets/profile-photo.jpg"
             alt="Profile"
             className="w-full h-full object-cover"
           />
